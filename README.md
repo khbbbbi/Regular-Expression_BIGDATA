@@ -218,6 +218,55 @@ a$
 \A 는 ^ 와 동일하지만 re.MULTILINE 옵션을 무시하고 항상 문자열 첫 줄의 시작 문자를 검사한다. 
 \Z 는 $ 와 동일하지만 re.MULTILINE 옵션을 무시하고 항상 문자열 마지막 줄의 끝 문자를 검사한다.
 
+<br>
+
+<조건이 있는 표현식><br>
+### 표현식1(?=표현식2)
+표현식1 뒤의 문자열이 표현식2와 매치되면 표현식1 매치
+```python
+# hello 뒤에 world가 있으면 hello를 매치
+'hello(?=world)'
+```
+- helloworld : hello 뒤에 world가 있기 때문에 hello가 매치
+- byworld : hello가 없기 때문에 매치X
+- helloJames : hello 뒤에 world가 없기 때문에 매치X
+
+<br>
+
+### 표현식1(?!=표현식2)
+표현식1 뒤의 문자열이 표현식2와 매치되지 않으면 표현식1 매치
+```python
+# hello 뒤에 world가 없으면 hello를 매치
+'hello(?!=world)'
+```
+- helloworld : hello 뒤에 world가 있기 때문에 hello가 매치X
+- byworld : hello가 없기 때문에 매치X
+- helloJames : hello 뒤에 world가 없기 때문에 매치
+
+<br>
+
+### (?<=표현식1)표현식2
+표현식2 앞의 문자열이 표현식1과 매치되면 표현식2 매치
+```python
+# world 앞에 hello가 있으면 world를 매치
+(?<=hello)world
+```
+- helloworld : world 앞에 hello가 있기 때문에 world가 매치
+- byworld : world 앞에 hello가 없기 때문에 매치X
+- helloJames : world가 없기 때문에 매치X
+
+<br>
+
+### (?<!=표현식1)표현식2
+표현식2 앞의 문자열이 표현식1과 매치되지 않으면 표현식2 매치
+```python
+# world 앞에 hello가 없으면 world를 매치
+(?<!hello)world
+```
+- helloworld : world 앞에 hello가 있기 때문에 world가 매치X
+- byworld : world 앞에 hello가 없기 때문에 매치
+- helloJames : world가 없기 때문에 매치X
+
 ## 문법 정리
 
 ### Groups and ranges
