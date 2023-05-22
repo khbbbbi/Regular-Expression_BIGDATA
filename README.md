@@ -147,17 +147,20 @@ ex) 주민등록번호를 포함하고 있는 텍스트가 있다. 이 텍스트
 - "ac"는 "b"가 0번 사용되어 매치
 - ? == {0,1}와 같은 표현
 
+<br>
+
 ### <정규표현식>
 - 파이썬에서 정규 표현식을 지원하는 re모듈
 ```python
 import re
 p = re.compile('ab*') //패턴 객체
 ```
-패턴 객체를 이용하는 방법 4가지
-- Match
-- Search
-- Findall
-- Finditer
+
+- 패턴 객체를 이용하는 방법 4가지
+ - Match
+ - Search
+ - Findall
+ - Finditer
 
 ## 코드 예제
 
