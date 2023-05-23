@@ -473,3 +473,11 @@ else:
 ![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4c3053c9-0609-40d4-a1b4-5cc0055f2229)
  
 <br><br>
+
+> 출처<br>
+     유튜브 : <a href = "https://www.youtube.com/watch?v=dTDoTR0MXjU">정규표현식이란? 파이썬 정규표현식의 기초와 활용</a><br>
+     유튜브 : <a href = "https://youtu.be/t3M6toIflyQ">정규표현식, 더이상 미루지 말자</a><br>
+     위키독스 : <a href = "https://wikidocs.net/4308#match">점프 투 파이썬</a><br>
+     Github.io : <a href = "https://nachwon.github.io/regular-expressions/">[Python 문법] 정규표현식</a><br>
+     Velog : <a href = "https://velog.io/@sp1rit/Python-%EC%A0%95%EA%B7%9C-%ED%91%9C%ED%98%84%EC%8B%9D">Python 정규 표현식</a><br>
+     chatgpt
