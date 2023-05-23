@@ -391,12 +391,26 @@ match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 �
   
 ## 4. 코드 예제
   #### (1) 당첨자 발표 페이지에서 아이디가 끝 세자리가 별표(*)로 처리된 채로 나와있는 텍스트를 모두 추출하기.
-  <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/3494a17a-d1b8-4db0-8ac9-452ad425b4e5">
+  <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.<br><br>
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/da670aa7-3dd9-4b89-9c1a-5ed19a3f5c7b">
 
-  먼저, BeautifulSoup을 이용해 웹 페이지를 크롤링해온다.
-
-
+<br>
+  먼저, BeautifulSoup을 이용해 웹 페이지를 크롤링해온다.<br><br>
+  <img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/c75af04a-e58e-4777-9f2b-2734c8932f30"><br>
+그럼 위와 같이 페이지의 html 정보가 텍스트로 추출된다. 이 소스에서 아이디 텍스트의 규칙을 반영한 정규표현식을 정의해 매치되는 텍스트를 추출해 볼 것이다.<br><br>
+  
+  문자열의 규칙을 보면 아이디는 모두 알파벳이나 숫자로 시작하여 ***(별 3개)로 끝난다.
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/1e402784-36fd-40b5-950c-5ee65430a9a0" width = "15%">
+  <br><br>
+  그럼 이걸 정규표현식을 이용해 구현해보면? 다음과 같을 것이다.
+  ```python
+  [a-zA-Z0-9] + \*{3}
+  ```
+  - [a-zA-Z0-9]는 알파벳 대소문자나 숫자가 최소 1개 이상 있는 문자열을 의미한다.
+  - \*{3}는 문자 그대로 인식하기로 한 *이 3번 반복하는 문자열을 의미한다.
+<br><br>
+  그럼 이 정규표현식과 매치되는 모든 문자열을 찾아보자.
+  
 > 출처
 > 유튜브 : 조코딩: 정규표현식이란? 파이썬 정규표현식의 기초와 활용https://www.youtube.com/watch?v=dTDoTR0MXjU
 >          드림코딩 : 정규표현식 , 더이상 미루지 말자 🤩 https://www.youtube.com/watch?v=t3M6toIflyQ
