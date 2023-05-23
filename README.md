@@ -390,7 +390,56 @@ match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 �
 <br>
   
 ## 4. 코드 예제
-  #### (1) 당첨자 발표 페이지에서 아이디가 끝 세자리가 별표(*)로 처리된 채로 나와있는 텍스트를 모두 추출하기.
+  ### (1) 이메일 형식 검사(match 함수 사용)
+  이메일을 입력받아 이메일 형식을 만족하는지 검사하는 예제이다.<br>
+  영문이나 숫자로 시작해 @ 뒤에 영문 그리고 . 뒤에 영문으로 끝나도록 할 것 이다.<br>
+  위 조건을 정규표현식으로 표현한다면 다음과 같을 것이다.<br>
+  ```
+  [A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+&
+  ```
+  <br>
+  조건에 부합하면 '적합' 부합하지 않으면 '부적합'을 출력할 것이고, 시작부터 조건을 만족하는지 확인해야 하기 때문에 match 함수를 사용할 것이다.<br><br>
+  
+  다음과 같이 코드를 입력하고 결과 값을 확인해보자.
+```python
+import re
+  
+email_regex = re.compile("[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+$")
+email_input = input("이메일을 입력하세요 : ")
+
+if email_regex.match(email_input):
+    print("적합")
+else:
+    print("부적합")
+```
+  <br>
+  <b>< '적합'인 경우 : 영문or숫자 + @ + 영문 + . + 영문의 조합인 경우></b><br> 
+  - abc123@na.c<br>
+  - 123abc@na.c<br>
+  - 12345@ab.c<br>
+  - abcde@ab.c
+<br><br>
+    <b>< '부적합'인 경우 ></b> <br>
+  - abcd@123.a : @ 뒤에 영문이 아닌 숫자가 온 경우<br>
+  - abc@a.123 : . 뒤에 숫자가 아닌 영문이 온 경우<br>
+  - abc@.a : @와 .사이에 영문이 없는 경우<br>
+  - !abc@a.a : 영문or숫자가 아닌 다른 문자로 시작한 경우<br>
+  - abc@a.a! : 영문이 아닌 다른 문자로 끝난 경우<br>
+ <br><br>
+      
+  ### + 만약 위 상황에서 search 함수를 쓴다면?
+  search 함수는 문자열의 시작부터 검사하는 것이 아닌 문자열의 전체에서 매칭되는 부분을 찾는 것이기 때문에,<br>
+   위 정규식대로 입력하면 시작 문자가 영문이나 숫자가 아니더라도(ex. !abc@ab.c) 부적합이 아닌 적합을 출력할 것이다.
+     <br>
+   시작부터 조건에 맞추려면 문자열의 제일 처음과 매치시키는 ^를 사용해 정규식을 다음과 같이 수정해야 한다.
+  ```
+  ^[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+&
+  ```
+ <br>
+     그럼 match를 사용했던 것과 동일하게 알맞은 결과가 출력된다.
+  <br><br>
+  
+  ### (2) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
   <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.<br><br>
 <img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/da670aa7-3dd9-4b89-9c1a-5ed19a3f5c7b">
 
@@ -402,7 +451,7 @@ match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 �
 문자열의 규칙을 보면 아이디는 모두 알파벳이나 숫자로 시작하여 ***(별 3개)로 끝난다.<br>
 <img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/1e402784-36fd-40b5-950c-5ee65430a9a0" width = "15%">
   <br><br>
-그럼 이걸 정규표현식을 이용해 구현해보면? 다음과 같을 것이다.
+그럼 이걸 정규표현식을 이용해 표현해보면? 다음과 같을 것이다.
   ```python
   [a-zA-Z0-9] + \*{3}
   ```
@@ -411,13 +460,11 @@ match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 �
 
 <br>
 
-위 정규표현식과 매치되는 모든 문자열을 찾아보자.<br>
+위 정규표현식과 매치되는 모든 문자열을 찾기 위해 findall 함수를 사용할 것이다.<br>
   
 ![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4c3053c9-0609-40d4-a1b4-5cc0055f2229)
  
 <br><br>
-
-re 라이브러리의 findall 함수는 텍스트에서 일치하는 문자열을 모두 찾아서 리턴한다.
   
 > 출처
 > 유튜브 : 조코딩: 정규표현식이란? 파이썬 정규표현식의 기초와 활용https://www.youtube.com/watch?v=dTDoTR0MXjU
