@@ -473,11 +473,3 @@ else:
 ![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4c3053c9-0609-40d4-a1b4-5cc0055f2229)
  
 <br><br>
-  
-> 출처
-> 유튜브 : 조코딩: 정규표현식이란? 파이썬 정규표현식의 기초와 활용https://www.youtube.com/watch?v=dTDoTR0MXjU
->          드림코딩 : 정규표현식 , 더이상 미루지 말자 🤩 https://www.youtube.com/watch?v=t3M6toIflyQ
-> =위키백과 : https://ko.wikipedia.org/wiki/%EC%A0%95%EA%B7%9C_%ED%91%9C%ED%98%84%EC%8B%9D
-> https://blog.walkinpcm.com/15
-> https://velog.io/@909snare/%EC%A0%95%EA%B7%9C%ED%91%9C%ED%98%84%EC%8B%9D-%EC%86%8C%EA%B0%9C
-> https://doorbw.tistory.com/111
