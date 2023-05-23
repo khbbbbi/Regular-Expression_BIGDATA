@@ -1,12 +1,20 @@
 # -정규 표현식(Regular-Expression)-
-## 목차
+## < 목 차 >
 #### 1. 정규 표현식이란?
+  (1) 정의<br>
+  (2) 구성
 #### 2. 정규 표현식의 필요성
+#### 3. 파이썬에서의 기본 사용법
+(1) 메타 문자 <br>
+(2) re Python 정규표현식 모듈<br>
+(3) 패턴 객체의 메서드 
+#### + 문법 정리
+#### 4. 코드 예제
 
 <br><br>
 
 ## 1. 정규 표현식이란?
-### <정의>
+### (1) 정의
 - 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식 언어
 - 텍스트에서 우리가 원하는 특정한 패턴을 찾을 때 요긴하게 사용
 ```
@@ -18,7 +26,7 @@
 ```
 <br>
 
-### <구성>
+### (2) 구성
 <img src="https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4af0b4cc-c1c7-49e1-ba39-ae50f351d317" width="70%"><br>
 - <b>슬래시(/)</b> : 슬래시를 이용해 '나는 정규 표현식이야!'라고 나타냄<br>
 -    <b>패턴</b>   : //안에 우리가 찾고자하는 패턴 작성<br>
@@ -55,8 +63,8 @@ ex) 주민등록번호를 포함하고 있는 텍스트가 있다. 이 텍스트
 ```
 
 <br><br>
-
-## 메타 문자
+## 3. 파이썬에서의 기본 사용법
+### (1) 메타 문자
 ```. ^ $ * + ? \ | ( ) { } [ ]```<br>
 정규식에서 사용되는 메타 문자는 다음과 같다. 
 ```
@@ -220,7 +228,7 @@ a$
 
 <br>
 
-<조건이 있는 표현식><br>
+<b><조건이 있는 표현식></b><br>
 ### 표현식1(?=표현식2)
 표현식1 뒤의 문자열이 표현식2와 매치되면 표현식1 매치
 ```python
@@ -267,10 +275,75 @@ a$
 - byworld : world 앞에 hello가 없기 때문에 매치
 - helloJames : world가 없기 때문에 매치X
 
-## 문법 정리
+<br>
 
+---
+
+<br>
+
+### (2) re Python 정규표현식 모듈 
+Python에서는 re 모듈을 통해 정규표현식을 사용한다.
+```python
+import re
+```
+re.compile() 명령을 통해 정규표현식을 컴파일하여 변수에 저장한 후 사용할 수 있다.
+```python
+변수이름 = re.compile('정규표현식')
+```
+정규표현식을 컴파일하여 변수에 할당한 후 타입을 확인해보면 \_src.SRE_Pattern 이라는 이름의 클래스 객체인 것을 볼 수 있다.<br>
+<p align="center"><img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4a8b7e2a-b6ea-4b1b-8a08-8d1c318894c7" width = "70%"></p> 
+
+<br>
+
+---
+
+<br>
+
+### (3) 패턴 객체의 메서드 
+패턴 객체는 매치를 검색할 수 있는 4가지 메서드를 제공한다.
+다음 정규표현식으로 각각의 메서드를 비교해보자!
+```python
+p = re.compile('[a-z]+')
+```
+#### 1. match : 시작부터 일치하는 패턴 찾기
+- 문자열의 처음 시작부터 검색하여 일치하지 않는 부분이 나올 때까지 찾는다.
+```
+✏️ 문자열 중간에 찾을 패턴이 있어도 시작부터 패턴이 일치하지 않으면 찾지 않는다.
+```
+- 매치될 때는 match객체를 리턴!
+- 매치되지 않을 때는 None을 리턴
+- ex)<br>
+match 객체를 돌려줌.<br>
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/2a2c43d1-de28-4023-9218-efb9d041e9f2" width = "70%"> <br>
+2가 [a-z]+ 정규식에 부합하지 않으므로 None 리턴
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/b0b0b955-7de4-4242-a676-9712ce30cce6" width = "70%"> <br><br>
+
+#### 2. search : 전체 문자열에서 첫 번째 매치 찾기
+- 문자열 전체에서 검색하여 처음으로 매치되는 문자열을 찾는다.
+```
+✏️ match가 문자열의 처음부터 검색하기 때문에 중간에 패턴이 있어도 시작부터 일치하지 않으면 찾지 않는다면, search는 문자열 전체를 검색하기 때문에 시작이 일치하지 않아도 일치하는 패턴이 존재한다면 가장 처음으로 일치하는 패턴을 찾는다. 나머지 특징은 match와 동일하다~!
+```
+- ex)<br>
+match 객체를 돌려줌.(match와 동일)<br>
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/660c0d8e-f505-4d76-9a46-1c4a307606c3" width = "70%"> <br>
+match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 패턴을 찾음.)
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/bb6fe251-de96-4b65-b141-bb896a2dcbfe" width = "70%"> <br><br>
+
+#### 3. findall : 모든 매치를 찾아 리스트로 반환
+- 문자열 내에서 일치하는 모든 패턴을 찾아 리스트로 반환한다.
+- ex)<br>
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/86f8a94b-c187-4070-a910-1e104d789386" width = "70%"> <br><br>
+
+
+#### 4. finditer : 모든 매치를 찾아 반복가능 객체로 반환
+ - findall과 동일하지만 결과로 반복 가능한 객체를 리턴한다. 반복 가능한 객체가 포함하는 각각의 요소는 match 객체이다.
+- ex)<br>
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/05fb49ea-35fc-477f-97cb-84b02d0cf97c" width = "70%"> <br><br>
+
+<br>
+ 
+## + 문법 정리
 ### Groups and ranges
-
 | Character | 뜻                                     |
 | --------- | -------------------------------------- |
 | `\|`      | 또는                                   |
@@ -278,6 +351,7 @@ a$
 | `[]`      | 문자셋, 괄호안의 어떤 문자든           |
 | `[^]`     | 부정 문자셋, 괄호안의 어떤 문가 아닐때 |
 | `(?:)`    | 찾지만 기억하지는 않음                 |
+
 
 ### Quantifiers
 
@@ -313,23 +387,8 @@ a$
 | `\S`      | space 공백 아님              |
 
  
-## 파이썬에서의 기본 사용법
 
 
-### <정규표현식>
-- 파이썬에서 정규 표현식을 지원하는 re모듈
-```python
-import re
-p = re.compile('ab*') //패턴 객체
-```
-
-- 패턴 객체를 이용하는 방법 4가지
- - Match
- - Search
- - Findall
- - Finditer
-
-## 코드 예제
 
 > 출처
 > 유튜브 : 조코딩: 정규표현식이란? 파이썬 정규표현식의 기초와 활용https://www.youtube.com/watch?v=dTDoTR0MXjU
