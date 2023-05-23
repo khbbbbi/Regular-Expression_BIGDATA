@@ -386,8 +386,15 @@ match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 �
 | `\s`      | space 공백                   |
 | `\S`      | space 공백 아님              |
 
- 
+<br>
+<br>
+  
+## 4. 코드 예제
+  #### (1) 당첨자 발표 페이지에서 아이디가 끝 세자리가 별표(*)로 처리된 채로 나와있는 텍스트를 모두 추출하기.
+  <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/3494a17a-d1b8-4db0-8ac9-452ad425b4e5">
 
+  먼저, BeautifulSoup을 이용해 웹 페이지를 크롤링해온다.
 
 
 > 출처
