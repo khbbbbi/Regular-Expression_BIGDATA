@@ -16,7 +16,8 @@
 #### 4. 코드 예제
  (1) 이메일 형식 검사(match 함수 사용)  
   + 만약 위 상황에서 search 함수를 쓴다면?<br>
- (2) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
+ (2) 전화번호 형식 검사(match 함수 사용)
+ (3) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
 
 
 <br><br>
@@ -447,7 +448,27 @@ else:
      그럼 match를 사용했던 것과 동일하게 알맞은 결과가 출력된다.
   <br><br><br>
   
-  ### (2) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
+ 
+### (2) 전화번호 형식 검사(match 함수 사용)
+phone1, phone2, phone3 객체에 검사할 텍스트를 저장한다.
+format_phone_number 함수는 주어진 전화번호를 지정된 형식으로 변환해주며, 형식에 맞지 않는 경우 "부적합"을 반환한다.<br>
+정규표현식은 다음과 같다. <br>
+```python
+r'^(\d{3})(\d{3,4})(\d{4})$
+```
+- ^: 문자열의 시작
+- (\d{3}): 세 자리 숫자 그룹
+- (\d{3,4}): 세 자리 또는 네 자리 숫자 그룹
+- (\d{4}): 네 자리 숫자 그룹
+- $: 문자열의 끝
+     <br><br>
+     위 정규표현식을 사용해 다음과 같이 구현할 수 있다. <br> 
+     10~11자리의 숫자로만 이루어진 경우 (000)-0000-0000 형식으로 반환되고,  그 이외는 "부적합"을 반환한다.<br>
+     ![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/a00488e6-f98a-450a-8529-1cab82d23f55)
+<br>
+     <br>
+     
+  ### (3) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
   <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.<br><br>
 <img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/da670aa7-3dd9-4b89-9c1a-5ed19a3f5c7b">
 
