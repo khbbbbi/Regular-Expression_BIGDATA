@@ -1,3 +1,5 @@
+# (2) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
+
 import requests
 from bs4 import BeautifulSoup
 import re

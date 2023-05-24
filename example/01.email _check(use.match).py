@@ -1,3 +1,5 @@
+# (1) 이메일 형식 검사(match 함수 사용)
+
 import re
 
 email_regex = re.compile("[A-Za-z0-9]+@[A-Za-z]+\.[A-Za-z]+$")
