@@ -36,7 +36,8 @@
 <br>
 
 ### (2) 구성
-<img src="https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4af0b4cc-c1c7-49e1-ba39-ae50f351d317" width="70%"><br>
+![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/3f2b8026-148f-4fe0-82c3-2c21d297aabb)
+<br>
 - <b>슬래시(/)</b> : 슬래시를 이용해 '나는 정규 표현식이야!'라고 나타냄<br>
 -    <b>패턴</b>   : //안에 우리가 찾고자하는 패턴 작성<br>
 -    <b>flag</b>   : 어떤 옵션을 이용해서 검색할 건지 flag를 활용할 수 있음.<br>
@@ -56,7 +57,7 @@ ex) 주민등록번호를 포함하고 있는 텍스트가 있다. 이 텍스트
 
 |여러 개의 조건을 활용해 문제 해결한 코드|정규표현식을 사용한 경우|
 |------|---|
-|<img src="https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/2108b89f-7d84-4b65-a1c9-471ff71ae05a" >|<img src="https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/49f6bda4-d8f4-40fe-a052-86bc8c6425d3">|
+|![스크린샷 2023-05-19 152134](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4735a7fa-8e41-4cd3-a5e9-a5015177a456)|![스크린샷 2023-05-19 160329](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/df4efb1c-ca38-49fb-9c1d-1dd9895bab6e)|
 
 간단한 예제로 코드만 비교해보아도 정규표현식을 사용한 경우의 코드가 훨씬 간결한 것을 볼 수 있다.
 
@@ -300,7 +301,7 @@ re.compile() 명령을 통해 정규표현식을 컴파일하여 변수에 저�
 변수이름 = re.compile('정규표현식')
 ```
 정규표현식을 컴파일하여 변수에 할당한 후 타입을 확인해보면 \_src.SRE_Pattern 이라는 이름의 클래스 객체인 것을 볼 수 있다.<br>
-<p align="center"><img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4a8b7e2a-b6ea-4b1b-8a08-8d1c318894c7" width = "70%"></p> 
+![스크린샷 2023-05-23 100007](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/9638f664-1f1d-43c6-b588-247c4ee71e25)
 
 <br>
 
@@ -323,9 +324,11 @@ p = re.compile('[a-z]+')
 - 매치되지 않을 때는 None을 리턴
 - ex)<br>
 match 객체를 돌려줌.<br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/2a2c43d1-de28-4023-9218-efb9d041e9f2" width = "70%"> <br>
-2가 [a-z]+ 정규식에 부합하지 않으므로 None 리턴
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/b0b0b955-7de4-4242-a676-9712ce30cce6" width = "70%"> <br><br>
+![스크린샷 2023-05-23 101257](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/5e4c29e6-9374-4785-b429-28efa24f5772)<br>
+2가 [a-z]+ 정규식에 부합하지 않으므로 None 리턴<br>
+![스크린샷 2023-05-23 101519](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/415a7fa8-f7c6-4cf2-9bfa-c925f5ef9939)
+
+ <br><br>
 
 #### 2. search : 전체 문자열에서 첫 번째 매치 찾기
 - 문자열 전체에서 검색하여 처음으로 매치되는 문자열을 찾는다.
@@ -334,20 +337,26 @@ match 객체를 돌려줌.<br>
 ```
 - ex)<br>
 match 객체를 돌려줌.(match와 동일)<br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/660c0d8e-f505-4d76-9a46-1c4a307606c3" width = "70%"> <br>
-match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 패턴을 찾음.)
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/bb6fe251-de96-4b65-b141-bb896a2dcbfe" width = "70%"> <br><br>
+![스크린샷 2023-05-23 102859](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/76406bf6-b698-4c1f-84db-b59d866141d0)<br>
+match 객체를 돌려줌.(match와는 달리 시작이 일치하지 않아도 패턴을 찾음.)<br>
+![스크린샷 2023-05-23 103028](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/d6b9ec6c-8f86-42a1-8f9f-19aa8caef8f5)
+
+ <br><br>
 
 #### 3. findall : 모든 매치를 찾아 리스트로 반환
 - 문자열 내에서 일치하는 모든 패턴을 찾아 리스트로 반환한다.
 - ex)<br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/86f8a94b-c187-4070-a910-1e104d789386" width = "70%"> <br><br>
+![스크린샷 2023-05-23 105346](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/e16650d5-b7fd-4d4f-925f-c0c1ac2f0b09)
+
+ <br><br>
 
 
 #### 4. finditer : 모든 매치를 찾아 반복가능 객체로 반환
  - findall과 동일하지만 결과로 반복 가능한 객체를 리턴한다. 반복 가능한 객체가 포함하는 각각의 요소는 match 객체이다.
 - ex)<br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/05fb49ea-35fc-477f-97cb-84b02d0cf97c" width = "70%"> <br><br>
+![스크린샷 2023-05-23 105735](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/eb0a1081-9b4e-4b6e-968e-239411a2182b)
+
+ <br><br>
 
 <br>
  
@@ -464,21 +473,25 @@ r'^(\d{3})(\d{3,4})(\d{4})$
      <br><br>
      위 정규표현식을 사용해 다음과 같이 구현할 수 있다. <br> 
      10~11자리의 숫자로만 이루어진 경우 (000)-0000-0000 형식으로 반환되고,  그 이외는 "부적합"을 반환한다.<br>
-     ![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/a00488e6-f98a-450a-8529-1cab82d23f55)
-<br>
+![스크린샷 2023-05-24 193644](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/a72382da-8482-4d3b-a501-65e84dfd126c)
+
      <br>
      
   ### (3) 당첨자 발표 페이지-특정 패턴 가진 아이디 추출(findall 함수 사용)
   <a href="http://m.yes24.com/Event/EventWinnerDetail?iContentNo=59080&NoticeYn=Y">yes24의 당첨자 페이지</a>에 가보면 다음과 같이 이벤트에 당첨된 사람들의 아이디 끝 3자리가 별표 처리된 채로 쭉 나오는데 그 패턴을 이용해 매치되는 모든 텍스트를 추출해볼 것이다.<br><br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/da670aa7-3dd9-4b89-9c1a-5ed19a3f5c7b">
+![스크린샷 2023-05-23 112710](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/e479452a-fbd9-4e05-9beb-b24b09b63594)
+
 
 <br>
 먼저, BeautifulSoup을 이용해 웹 페이지를 크롤링해온다.<br><br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/c75af04a-e58e-4777-9f2b-2734c8932f30"><br>
+     
+![스크린샷 2023-05-23 111702](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/e2bc7c65-e493-410b-bc64-7f6dec690797)
+<br>
+     
 그럼 위와 같이 페이지의 html 정보가 텍스트로 추출된다. 이 소스에서 아이디 텍스트의 규칙을 반영한 정규표현식을 정의해 매치되는 텍스트를 추출해 볼 것이다.<br><br>
   
 문자열의 규칙을 보면 아이디는 모두 알파벳이나 숫자로 시작하여 ***(별 3개)로 끝난다.<br>
-<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/1e402784-36fd-40b5-950c-5ee65430a9a0" width = "15%">
+<img src = "https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/6628e6c8-be30-45b8-90a3-67bac88c4f12" width = "15%">
   <br><br>
 그럼 이걸 정규표현식을 이용해 표현해보면? 다음과 같을 것이다.
   ```python
@@ -491,7 +504,8 @@ r'^(\d{3})(\d{3,4})(\d{4})$
 
 위 정규표현식과 매치되는 모든 문자열을 찾기 위해 findall 함수를 사용할 것이다.<br>
   
-![image](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/4c3053c9-0609-40d4-a1b4-5cc0055f2229)
+![스크린샷 2023-05-23 152356](https://github.com/khbbbbi/Regular-Expression_BIGDATA/assets/102509150/12ac4552-ca73-439e-8855-dadfcb2b6cce)
+<br>
  
 <br><br>
 
